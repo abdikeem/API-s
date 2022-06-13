@@ -1,5 +1,5 @@
 # Python API's
 
 <html>
-    <img src="../images/folder1.png">
+    <img src="../images/lesson1.png">
 </html>

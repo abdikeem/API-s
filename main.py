@@ -1,7 +1,13 @@
+from hashlib import new
 from fastapi import FastAPI
 from fastapi.params import Body
+from pydantic import BaseModel
 
 app = FastAPI()
+
+class Post(BaseModel):
+    title: str
+    content: str
 
 @app.get("/")
 def root():
@@ -12,6 +18,8 @@ def lesson2():
     return {"Data": "Welcome to my FastAPi"}
 
 @app.post("/createpost")
-def createPost(payload: dict = Body(...)):
-    print(payload)
-    return {"new_post": f"title: {payload['title']} content: {payload['content']}"}
+def createPost(new_post: Post):
+    print(new_post)
+    return {"data": "new_post"}
+
+# title str, content str
